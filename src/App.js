@@ -13,13 +13,11 @@ class App extends React.Component {
             {radius:50, colour:"purple", pointX:350, pointY:50},
         ]
 
-        const fivePoint = [
-            {pointX:Math.floor(Math.random()*400), pointY:Math.floor(Math.random()*100)},
-            {pointX:Math.floor(Math.random()*400), pointY:Math.floor(Math.random()*100)},
-            {pointX:Math.floor(Math.random()*400), pointY:Math.floor(Math.random()*100)},
-            {pointX:Math.floor(Math.random()*400), pointY:Math.floor(Math.random()*100)},
-            {pointX:Math.floor(Math.random()*400), pointY:Math.floor(Math.random()*100)},
-        ]
+        const fivePoint = []
+
+        for (let i = 0; i < 5; i++) {
+            fivePoint.push({pointX:Math.floor(Math.random()*400), pointY:Math.floor(Math.random()*100)})
+        }
 
         for (let i = 0; i < fivePoint.length; i++) {
 
