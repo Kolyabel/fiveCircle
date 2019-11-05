@@ -13,9 +13,6 @@ class App extends React.Component {
             {radius:50, colour:"purple", pointX:350, pointY:50},
         ]
 
-        let randomX = Math.floor(Math.random()*400)
-        let randomY = Math.floor(Math.random()*100)
-
         const fivePoint = [
             {pointX:Math.floor(Math.random()*400), pointY:Math.floor(Math.random()*100)},
             {pointX:Math.floor(Math.random()*400), pointY:Math.floor(Math.random()*100)},
