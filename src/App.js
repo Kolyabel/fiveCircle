@@ -6,11 +6,11 @@ class App extends React.Component {
 
     render() {
         const fiveCircle = [
-            {radius:50, colour:"green", pointX:50, pointY:50},
-            {radius:28, colour:"blue", pointX:140, pointY:60},
-            {radius:32, colour:"yellow", pointX:200, pointY:40},
-            {radius:30, colour:"red", pointX:270, pointY:50},
-            {radius:50, colour:"purple", pointX:350, pointY:50},
+            {radius:83, colour:"green", pointX:50, pointY:50},
+            {radius:70, colour:"blue", pointX:50, pointY:50},
+            {radius:58, colour:"yellow", pointX:50, pointY:50},
+            {radius:48, colour:"red", pointX:50, pointY:50},
+            {radius:40, colour:"purple", pointX:50, pointY:50},
         ]
 
         const fivePoint = []
@@ -34,7 +34,7 @@ class App extends React.Component {
         return (
             <div>
                 <svg
-                    width="400"
+                    width="100"
                     height="100">
 
                     {fiveCircle.map((item) => (
