@@ -4,13 +4,13 @@ class Point extends React.Component {
 
     render() {
 
-        const { pointX, pointY } = this.props
+        const { pointX, pointY, colour } = this.props
         return (
             <circle
                 cx={pointX}
                 cy= {pointY}
                 r="2"
-                fill="dark"
+                fill={colour}
             />
         )
     }

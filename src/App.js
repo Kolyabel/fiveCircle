@@ -6,36 +6,61 @@ class App extends React.Component {
 
     render() {
         const fiveCircle = [
-            {radius:83, colour:"green", pointX:50, pointY:50},
-            {radius:70, colour:"blue", pointX:50, pointY:50},
-            {radius:58, colour:"yellow", pointX:50, pointY:50},
-            {radius:48, colour:"red", pointX:50, pointY:50},
-            {radius:40, colour:"purple", pointX:50, pointY:50},
+            {radius:124, colour:"green", pointX:260, pointY:260},
+            {radius:103, colour:"blue", pointX:260, pointY:260},
+            {radius:86, colour:"yellow", pointX:260, pointY:260},
+            {radius:72, colour:"red",pointX:260, pointY:260},
+            {radius:60, colour:"purple", pointX:260, pointY:260},
         ]
 
         const fivePoint = []
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < fiveCircle.length; i++) {
 
-            fivePoint.push({pointX:Math.floor(Math.random()*400), pointY:Math.floor(Math.random()*100)})
+            let randomX
+            let randomY
+            let minY
+            let maxY
+            let colourPoint = ["red", "dark", "purple", "green", "silver"]
 
-            for (let j = 0; j < fiveCircle.length; j++) {
+            for (let j = 0; j < 9; j++) {
 
-                if (((fiveCircle[j].radius ** 2) >
-                    ((fivePoint[i].pointX - fiveCircle[j].pointX) ** 2 +
-                        (fivePoint[i].pointY - fiveCircle[j].pointY) ** 2))) {
+                let min = Math.ceil(fiveCircle[i].pointX - fiveCircle[i].radius)
+                let max = Math.floor(fiveCircle[i].pointX + fiveCircle[i].radius)
 
-                    console.log("точка", i + 1, "в круге", fiveCircle[j].colour)
-                    break;
+                randomX = Math.floor(Math.random() * (max - min)) + min
+
+                maxY = Math.sqrt((fiveCircle[i].radius ** 2) -
+                    ((randomX - fiveCircle[i].pointY) ** 2)) + fiveCircle[i].pointX
+
+                if (i < fiveCircle.length - 1){
+
+                    if (randomX < fiveCircle[i].pointX - fiveCircle[i + 1].radius ||
+                            randomX > fiveCircle[i].pointX + fiveCircle[i + 1].radius) {
+
+                        minY = fiveCircle[i].pointY - (maxY - fiveCircle[i].pointY)
+                    } else {
+
+                        minY =  Math.sqrt((fiveCircle[i + 1].radius ** 2) - (
+                            (randomX - fiveCircle[i + 1].pointY) ** 2)) + fiveCircle[i + 1].pointX
+                    }
+
+                } else if (i == fiveCircle.length - 1) {
+
+                    minY = fiveCircle[i].pointY - (maxY - fiveCircle[i].pointY)
                 }
+
+                randomY = Math.floor(Math.random() * (maxY - minY)) + minY
+
+                fivePoint.push({pointX:randomX, pointY:randomY, colour:colourPoint[i]})
             }
         }
 
         return (
             <div>
                 <svg
-                    width="100"
-                    height="100">
+                    width="400"
+                    height="400">
 
                     {fiveCircle.map((item) => (
                             <Circle {...item}/>
