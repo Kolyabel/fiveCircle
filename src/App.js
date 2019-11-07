@@ -17,10 +17,8 @@ class App extends React.Component {
 
         for (let i = 0; i < fiveCircle.length; i++) {
 
-            let randomX
             let randomY
             let minY
-            let maxY
             let colourPoint = ["red", "dark", "purple", "green", "silver"]
 
             for (let j = 0; j < 9; j++) {
@@ -28,9 +26,9 @@ class App extends React.Component {
                 let min = Math.ceil(fiveCircle[i].pointX - fiveCircle[i].radius)
                 let max = Math.floor(fiveCircle[i].pointX + fiveCircle[i].radius)
 
-                randomX = Math.floor(Math.random() * (max - min)) + min
+                let randomX = Math.floor(Math.random() * (max - min)) + min
 
-                maxY = Math.sqrt((fiveCircle[i].radius ** 2) -
+                let maxY = Math.sqrt((fiveCircle[i].radius ** 2) -
                     ((randomX - fiveCircle[i].pointY) ** 2)) + fiveCircle[i].pointX
 
                 if (i < fiveCircle.length - 1){
