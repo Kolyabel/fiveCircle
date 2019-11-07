@@ -13,7 +13,7 @@ class App extends React.Component {
             {radius:60, colour:"purple", pointX:260, pointY:260},
         ]
 
-        const fivePoint = []
+        const ArrPoint = []
 
         for (let i = 0; i < fiveCircle.length; i++) {
 
@@ -55,7 +55,7 @@ class App extends React.Component {
 
                 let randomY = Math.floor(Math.random() * (maxY - minY)) + minY
 
-                fivePoint.push({pointX:randomX, pointY:randomY, colour:colourPoint[i]})
+                ArrPoint.push({pointX:randomX, pointY:randomY, colour:colourPoint[i]})
             }
         }
 
@@ -70,7 +70,7 @@ class App extends React.Component {
                         )
                     )}
 
-                    {fivePoint.map((item) => (
+                    {ArrPoint.map((item) => (
                             <Point {...item}/>
                         )
                     )}
