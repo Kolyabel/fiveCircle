@@ -50,6 +50,12 @@ class App extends React.Component {
                     minY = fiveCircle[i].pointY - (maxY - fiveCircle[i].pointY)
                 }
 
+                if (Math.random() < 0.5) {
+
+                    maxY = fiveCircle[i].pointY - maxY + fiveCircle[i].pointY
+                    minY = fiveCircle[i].pointY - minY + fiveCircle[i].pointY
+                }
+
                 randomY = Math.floor(Math.random() * (maxY - minY)) + minY
 
                 fivePoint.push({pointX:randomX, pointY:randomY, colour:colourPoint[i]})
