@@ -5,27 +5,28 @@ import Point from './Point';
 class App extends React.Component {
 
     render() {
-        const fiveCircle = [
-            {radius:124, colour:"green", pointX:260, pointY:260},
-            {radius:103, colour:"blue", pointX:260, pointY:260},
-            {radius:86, colour:"yellow", pointX:260, pointY:260},
-            {radius:72, colour:"red",pointX:260, pointY:260},
-            {radius:60, colour:"purple", pointX:260, pointY:260},
-        ]
+        const fiveCircle = []
+        let radius = 140
+
+        for (let i = 0; i < 5; i++) {
+
+            fiveCircle.push({radius:radius, pointX:260, pointY:260})
+            radius = radius - 30
+        }
 
         const ArrPoint = []
 
         for (let i = 0; i < fiveCircle.length; i++) {
 
             let minY
-            let colourPoint = ["red", "dark", "purple", "green", "silver"]
+            const colourPoint = ["red", "dark", "purple", "green", "blue"]
 
-            for (let j = 0; j < 9; j++) {
+            for (let j = 0; j < 15; j++) {
 
-                let min = Math.ceil(fiveCircle[i].pointX - fiveCircle[i].radius)
-                let max = Math.floor(fiveCircle[i].pointX + fiveCircle[i].radius)
+                let min = fiveCircle[i].pointX - fiveCircle[i].radius
+                let max = fiveCircle[i].pointX + fiveCircle[i].radius
 
-                let randomX = Math.floor(Math.random() * (max - min)) + min
+                let randomX = Math.random() * (max - min) + min
 
                 let maxY = Math.sqrt((fiveCircle[i].radius ** 2) -
                     ((randomX - fiveCircle[i].pointY) ** 2)) + fiveCircle[i].pointX
@@ -38,8 +39,8 @@ class App extends React.Component {
                         minY = fiveCircle[i].pointY - (maxY - fiveCircle[i].pointY)
                     } else {
 
-                        minY =  Math.sqrt((fiveCircle[i + 1].radius ** 2) - (
-                            (randomX - fiveCircle[i + 1].pointY) ** 2)) + fiveCircle[i + 1].pointX
+                        minY =  Math.sqrt((fiveCircle[i + 1].radius ** 2) -
+                            ((randomX - fiveCircle[i + 1].pointY) ** 2)) + fiveCircle[i + 1].pointX
                     }
 
                 } else if (i == fiveCircle.length - 1) {
@@ -53,7 +54,7 @@ class App extends React.Component {
                     minY = fiveCircle[i].pointY - minY + fiveCircle[i].pointY
                 }
 
-                let randomY = Math.floor(Math.random() * (maxY - minY)) + minY
+                let randomY = Math.random() * (maxY - minY) + minY
 
                 ArrPoint.push({pointX:randomX, pointY:randomY, colour:colourPoint[i]})
             }

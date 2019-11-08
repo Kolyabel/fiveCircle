@@ -4,13 +4,15 @@ class Circle extends React.Component {
 
     render() {
 
-        const { radius, colour, pointX, pointY } = this.props
+        const { radius, pointX, pointY } = this.props
         return (
             <circle
                cx={pointX}
-               cy= {pointY}
+               cy={pointY}
                r={radius}
-               fill={colour}
+               stroke="silver"
+               stroke-width="2"
+               fill="white"
             />
         )
     }
